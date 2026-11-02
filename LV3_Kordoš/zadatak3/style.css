@@ -1,0 +1,14 @@
+/* Prevedeni CSS za izravno otvaranje index.html bez Sassa ili CodePena. */
+.gumb-sekundarni,.gumb,.kartica{border:2px solid #17365d;border-radius:12px;padding:1.2rem}
+body{margin:0;background:#f2f7fa;color:#17365d;font-family:'Segoe UI',Arial,sans-serif}
+.sadrzaj{max-width:850px;margin:2.5rem auto;padding:0 1rem}
+h1{color:#17365d}
+.kartice{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.kartica{background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.13)}
+.kartica h2{margin-top:0;color:#128078}
+.gumb{display:inline-block;background:#17365d;color:#fff;text-decoration:none}
+.gumb:hover{background:#128078}
+.gumb-sekundarni{display:inline-block;background:#128078;color:#fff;text-decoration:none}
+.gumb-sekundarni:hover{background:#17365d}
+.akcije{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}
+.napomena{color:#128078}

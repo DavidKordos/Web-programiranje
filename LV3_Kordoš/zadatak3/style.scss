@@ -1,0 +1,26 @@
+// Zadatak 3 – SCSS (CSS preprocessor u CodePenu: SCSS)
+$glavna: #17365d;
+$naglasak: #128078;
+$font: 'Segoe UI', Arial, sans-serif;
+
+%okvir {
+  border: 2px solid $glavna;
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+@mixin sjena($jacina: .13) { box-shadow: 0 8px 22px rgba(0, 0, 0, $jacina); }
+body { margin: 0; background: #f2f7fa; color: $glavna; font-family: $font; }
+.sadrzaj { max-width: 850px; margin: 2.5rem auto; padding: 0 1rem; }
+h1 { color: $glavna; }
+.kartice { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.kartica { @extend %okvir; background: white; @include sjena();
+  h2 { margin-top: 0; color: $naglasak; }
+}
+.gumb { @extend %okvir; display: inline-block; background: $glavna; color: white; text-decoration: none;
+  &:hover { background: $naglasak; }
+}
+.gumb-sekundarni { @extend %okvir; display: inline-block; background: $naglasak; color: white; text-decoration: none;
+  &:hover { background: $glavna; }
+}
+.akcije { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+.napomena { color: $naglasak; }
