@@ -1,16 +1,14 @@
-/* Zadatak 2: Stil se ucitava nakon Bootstrap 5 CSS-a. */
-/* Tablica: boja zaglavlja i centriranje; pravila na CELIJAMA zbog BS5.3. */
+
 .table thead th {
   background-color: #17365d;
   color: #fff;
   text-align: center;
-  border-bottom: 3px solid #efb33b; /* dodatna promjena tablice */
+  border-bottom: 3px solid #efb33b; 
 }
 .table tbody tr:nth-child(odd) td { background-color: #f5f9ff; }
 .table tbody tr:nth-child(even) td { background-color: #dbeafa; }
 .table tbody td { padding: .85rem 1rem; }
-/* h2 je prvo dijete sekcije, stoga p:first-child ne odgovara.
-   p:first-of-type pronalazi prvi element vrste p u roditelju. */
+
 .opis-prirode p:first-of-type {
   color: #c62828;
   font-size: 1.22rem;
