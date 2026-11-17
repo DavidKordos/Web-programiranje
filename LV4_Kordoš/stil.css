@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 32px 16px; color: #243247; }
+h1 { text-align: center; color: #17365d; margin: 0 0 24px; }
+form { max-width: 680px; margin: 0 auto; background: #fff; padding: 26px 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.10); }
+.red { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 12px; align-items: center; margin: 14px 0; }
+.red > :first-child:not(label) { grid-column: 2; }
+.red.sirok { align-items: start; }
+label { text-align: right; }
+.kontrola { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+input { padding: 8px; border: 1px solid #aab5c4; border-radius: 4px; max-width: 100%; }
+input[type=text] { width: 260px; }
+input[type=number] { width: 90px; }
+textarea { width: 100%; min-height: 180px; padding: 9px; border: 1px solid #aab5c4; border-radius: 4px; resize: vertical; }
+#pomoc { color: #175eaa; cursor: help; font-size: 20px; }
+#pomoc:focus { outline: 2px solid #175eaa; }
+#rezultat { text-align: center; min-height: 1.4em; color: #235a3d; }
+#rezultat.greska { color: #b42318; }
+.sredina { text-align: center; }
+button { padding: 8px 14px; background: #17365d; border: 0; border-radius: 5px; color: white; cursor: pointer; }
+button:hover { background: #26558a; }
+@media (max-width: 560px) { .red { grid-template-columns: 1fr; gap: 5px; } .red > :first-child:not(label) { grid-column: 1; } label { text-align: left; } form { padding: 20px; } }

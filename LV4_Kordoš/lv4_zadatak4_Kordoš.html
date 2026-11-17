@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hr"><head><meta charset="UTF-8"><title>Objekti u JavaScriptu</title></head>
+<body>
+<h1>Jednostavna tvorba objekta</h1><div id="psi"></div>
+<h1>Tvorba objekta preko razreda (klase)</h1><div id="macke"></div>
+<footer id="izmjena"></footer>
+<script>
+const bijeli = { ime: "snjezak", pasmina: "dalmatiner", starost: 8 };
+const garavi = { ime: "garo", pasmina: "pudlica", starost: 2 };
+const crni = { ime: "rex", pasmina: "labrador", starost: 5 };
+const smedi = { ime: "bobi", pasmina: "bigl", starost: 3 };
+const psi = [bijeli, garavi, crni, smedi];
+const ispisPsa = document.getElementById("psi");
+for (const [indeks, pas] of psi.entries()) {
+    const red = document.createElement("p");
+    red.textContent = `Ime ${indeks + 1}. psa je: ${pas.ime}, pasmina: ${pas.pasmina} i starost: ${pas.starost}`;
+    ispisPsa.appendChild(red);
+}
+console.log("Psi kao JSON:", JSON.stringify(psi));
+</script>
+<script src="lv4_zadatak4.js"></script>
+</body></html>

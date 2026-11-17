@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hr"><head><meta charset="UTF-8"><title>LV4 - Zadatak 1</title></head>
+<body><h1>Zadatak 1 – Varijable, stringovi i nizovi</h1><p>Rezultati su u konzoli preglednika (F12 → Console).</p>
+<script>
+
+var grad = "Osijek";
+let godina = 2026;
+const fakultet = "FERIT";
+console.log("Početne vrijednosti:", grad, godina, fakultet);
+grad = "Zagreb";
+godina = 2027;
+
+console.log("Nove vrijednosti:", grad, godina, fakultet);
+const recenica = "Ovo je prvi JS string primjer";
+console.log("Rečenica:", recenica, "Duljina:", recenica.length);
+console.log("Velika slova:", recenica.toUpperCase());
+console.log("Isječak:", recenica.slice(0, 11));
+console.log("Zamjena:", recenica.replace("prvi", "drugi"));
+console.log("Izvorna rečenica ostaje nepromijenjena:", recenica);
+const vozila = new Array("avion", "auto", "vlak", "bicikl", "brod", "motocikl", "podmornica");
+for (let i = 0; i < vozila.length; i++) {
+    console.log(`Vozilo broj ${i + 1} je ${vozila[i]}`);
+}
+vozila.push("tramvaj");
+console.log("Nakon dodavanja vozila:");
+let redniBroj = 1;
+for (const vozilo of vozila) {
+    console.log(`Vozilo broj ${redniBroj} je ${vozilo}`);
+    redniBroj++;
+}
+</script></body></html>
