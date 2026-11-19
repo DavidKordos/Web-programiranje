@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 3 &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+  </script>
+  <script defer="" src="konzola_Kordos.js">
+  </script>
+ </head>
+ <body>
+  <h1 id="naslov">
+   Zadatak 3 &ndash; jQuery
+  </h1>
+  <section>
+   <p id="odlomak">
+    Ovo je po&ccaron;etni tekst odlomka.
+   </p>
+   <img alt="Prva slika" id="slika" src="slika.jpg" width="420"/>
+   <button id="primijeni">
+    Izvr&scaron;i sve jQuery naredbe
+   </button>
+  </section>
+  <script>
+   document.querySelector('#primijeni').addEventListener('click', function () {
+    if (window.jQuery) {
+        izvrsiPrimjere();
+    } else {
+        alert('jQuery nije učitan.');
+    }
+});
+  </script>
+ </body>
+</html>

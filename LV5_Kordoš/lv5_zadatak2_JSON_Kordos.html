@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 2 JSON &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <h1>
+   Zadatak 2 &ndash; JSON i localStorage
+  </h1>
+  <section>
+   <button id="ucitaj">
+    Ponovno dohvati data.json
+   </button>
+   <button id="obrisi">
+    Obri&scaron;i localStorage
+   </button>
+   <p id="status" role="status">
+   </p>
+   <pre id="rezultat"></pre>
+  </section>
+  <script>
+   const prikaz = document.querySelector('#rezultat');
+const status = document.querySelector('#status');
+
+function prikazi(osobe, odakle) {
+    prikaz.textContent = JSON.stringify(osobe, null, 2);
+    status.textContent = 'Podaci učitani iz: ' + odakle;
+    console.log('Podaci:', osobe);
+}
+
+async function dohvatiJSON(datoteka) {
+    try {
+        const odgovor = await fetch(datoteka);
+        if (!odgovor.ok) {
+            throw new Error('HTTP ' + odgovor.status);
+        }
+
+        const osobe = await odgovor.json();
+        console.log('Prije promjene:', structuredClone(osobe));
+
+        osobe[1] = {
+            ...osobe[1],
+            ime: 'David',
+            prezime: 'Kordoš',
+            godina: 21,
+            zaposlen: false,
+            alergije: null,
+            adresa: {
+                ulica: 'Kordoš ulica',
+                broj: 1,
+                posta: 31000
+            }
+        };
+
+        localStorage.setItem('osobe', JSON.stringify(osobe));
+        const spremljene = JSON.parse(localStorage.getItem('osobe'));
+        console.log('Ponovno pročitano iz localStorage:', spremljene);
+        prikazi(spremljene, 'data.json → localStorage');
+    } catch (greska) {
+        console.error('Učitavanje nije uspjelo:', greska);
+        status.textContent = 'Pogreška: ' + greska.message;
+    }
+}
+
+document.querySelector('#ucitaj').addEventListener('click', function () {
+    dohvatiJSON('data.json');
+});
+
+document.querySelector('#obrisi').addEventListener('click', function () {
+    localStorage.removeItem('osobe');
+    prikaz.textContent = '';
+    status.textContent = 'Zapis osobe je obrisan.';
+});
+
+const postojeci = localStorage.getItem('osobe');
+if (postojeci) {
+    try {
+        prikazi(JSON.parse(postojeci), 'localStorage');
+    } catch (greska) {
+        localStorage.removeItem('osobe');
+        dohvatiJSON('data.json');
+    }
+} else {
+    dohvatiJSON('data.json');
+}
+  </script>
+ </body>
+</html>

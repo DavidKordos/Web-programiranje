@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 5 &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+  </script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js">
+  </script>
+  <script defer="" src="zadatak5.js">
+  </script>
+ </head>
+ <body>
+  <h1>
+   Razvrstaj boje
+  </h1>
+  <section>
+   <p>
+    Povuci kvadrate u spremnik odgovaraju&cacute;e boje.
+   </p>
+   <div class="spremnici">
+    <div class="spremnik" id="spremnik-crni">
+     <span>
+      Crno
+     </span>
+    </div>
+    <div class="spremnik" id="spremnik-crveni">
+     <span>
+      Crveno
+     </span>
+    </div>
+   </div>
+   <div class="kvadrati">
+    <div aria-label="Crveni kvadrat" class="kvadrat crveni" id="kvadrat-crveni">
+    </div>
+    <div aria-label="Crni kvadrat" class="kvadrat crni" id="kvadrat-crni">
+    </div>
+   </div>
+   <h2 id="poruka" role="status">
+   </h2>
+   <button id="reset">
+    Pokreni ponovno
+   </button>
+  </section>
+ </body>
+</html>

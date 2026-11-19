@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 2 TXT &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <h1>
+   Zadatak 2 &ndash; TXT
+  </h1>
+  <section>
+   <pre id="tekst">U&ccaron;itavanje...</pre>
+  </section>
+  <script>
+   async function dohvatiTekst(datoteka) {
+    try {
+        const odgovor = await fetch(datoteka);
+        if (!odgovor.ok) {
+            throw new Error('HTTP ' + odgovor.status);
+        }
+        document.querySelector('#tekst').textContent = await odgovor.text();
+    } catch (greska) {
+        console.error('Učitavanje nije uspjelo:', greska);
+        document.querySelector('#tekst').textContent = 'Pogreška: ' + greska.message;
+    }
+}
+
+dohvatiTekst('himna.txt');
+  </script>
+ </body>
+</html>

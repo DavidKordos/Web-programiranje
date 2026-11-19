@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 2 BLOB &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <h1>
+   Zadatak 2 &ndash; BLOB
+  </h1>
+  <section>
+   <p id="status">
+    U&ccaron;itavanje...
+   </p>
+   <img alt="Slika u&ccaron;itana pomo&cacute;u fetch i blob" id="slika"/>
+  </section>
+  <script>
+   let adresaSlike;
+
+async function dohvatiSliku(datoteka) {
+    try {
+        const odgovor = await fetch(datoteka);
+        if (!odgovor.ok) {
+            throw new Error('HTTP ' + odgovor.status);
+        }
+
+        const blob = await odgovor.blob();
+        if (adresaSlike) URL.revokeObjectURL(adresaSlike);
+        adresaSlike = URL.createObjectURL(blob);
+        document.querySelector('#slika').src = adresaSlike;
+        document.querySelector('#status').textContent = 'Slika je uspješno učitana.';
+    } catch (greska) {
+        console.error('Učitavanje nije uspjelo:', greska);
+        document.querySelector('#status').textContent = 'Pogreška: ' + greska.message;
+    }
+}
+
+dohvatiSliku('slika.jpg');
+
+window.addEventListener('pagehide', function () {
+    if (adresaSlike) URL.revokeObjectURL(adresaSlike);
+});
+  </script>
+ </body>
+</html>

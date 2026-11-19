@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Zadatak 1 &ndash; LV5
+  </title>
+  <link href="stil.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <h1>
+   Zadatak 1 &ndash; JSON
+  </h1>
+  <section>
+   <pre id="json"></pre>
+   <p id="tip">
+   </p>
+  </section>
+  <script>
+   const student = {
+    ime: 'David',
+    prezime: 'Kordoš',
+    godinaStudija: 3,
+    smjer: 'Računarstvo',
+    redovan: true
+};
+
+const mojJSON = JSON.stringify(student, null, 2);
+document.querySelector('#json').textContent = mojJSON;
+document.querySelector('#tip').textContent = 'typeof mojJSON: ' + typeof mojJSON;
+
+const kopija = JSON.parse(mojJSON);
+console.log('Kopija prije promjene:', structuredClone(kopija));
+kopija.ime = 'Marko';
+console.log('Izvorni student (nepromijenjen):', student);
+console.log('Promijenjena kopija:', kopija);
+  </script>
+ </body>
+</html>
